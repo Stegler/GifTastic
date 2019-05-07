@@ -11,7 +11,7 @@ $(document).ready(function () {
 
         for (var i = 0; i < superheros.length; i++) {
             var a = $("<button>");
-            a.addClass("mood");
+            a.addClass("superhero");
             a.attr("data-name", superheros[i]);
             a.text(superheros[i])
             // Add to HTML
@@ -20,7 +20,7 @@ $(document).ready(function () {
     }
 
     // User adding a button
-    $("#add-mood").on("click", function (event) {
+    $("#add-superhero").on("click", function (event) {
         event.preventDefault();
         // Fills in text from input box
         var superhero = $("#superhero-input").val().trim();
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
         // URL to search Giphy for superhero name
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            giphyQuery + "&api_key=..........=10&lang=en";
+            giphyQuery + "&api_key=8c9ZjVfsbKwiGHW3vFfNHCaI2lScVEBo&limit=10&lang=en";
 
         // AJAX GET
         $.ajax({
@@ -78,10 +78,9 @@ $(document).ready(function () {
                 $(this).attr("src", $(this).attr("data-still"));
                 $(this).attr("data-state", "still");
             }
-        }
         });
+    });
 
-        renderButtons();
+    renderButtons();
 
 })
-}
